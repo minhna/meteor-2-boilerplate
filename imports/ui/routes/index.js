@@ -1,10 +1,14 @@
 import React, { Suspense, lazy } from "react";
-import { Route } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 
-const TestComponent = lazy(() => import("/imports/ui/components/test.js"));
+const HomePage = lazy(() => import("/imports/ui/pages/home.js"));
+const TestPage = lazy(() => import("/imports/ui/pages/test.js"));
 
 export default MainRoutes = () => (
   <Suspense fallback={<div>loading...</div>}>
-    <Route path="/test" exact component={TestComponent} />
+    <Switch>
+      <Route path="/test" component={TestPage} />
+      <Route component={HomePage} />
+    </Switch>
   </Suspense>
 );
