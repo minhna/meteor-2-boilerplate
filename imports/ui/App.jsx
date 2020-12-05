@@ -11,15 +11,15 @@ export const App = () => {
   const layout = 'default'
   return (
     <div>
-      <MyThemeProvider>
-        <AccountProvider>
-          <LayoutProvider layout={layout}>
-              <Router>
-                <MainRoute />
-              </Router>
-          </LayoutProvider>
-        </AccountProvider>
-      </MyThemeProvider>
+      <Router>
+        <MyThemeProvider>
+          <AccountProvider>
+            <LayoutProvider layout={layout}>
+              <MainRoute />
+            </LayoutProvider>
+          </AccountProvider>
+        </MyThemeProvider>
+      </Router>
     </div>
   );
 }

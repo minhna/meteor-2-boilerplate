@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-
-import { Button } from "@material-ui/core";
+import { Link as RouterLink } from "react-router-dom";
+import { Button, Link } from "@material-ui/core";
 
 import { LayoutContext } from "/imports/ui/contexts/layout-context.js";
 
@@ -16,8 +16,13 @@ function TestComponent() {
       <div>Test Layouts</div>
       <div>
         <Button onClick={toggleLayout} variant="contained">
-          Toggle layout
+          Toggle layout (context)
         </Button>
+      </div>
+      <div>
+        <Link component={RouterLink} to="/test/layout?layout=single">
+          Single layout page URL
+        </Link>
       </div>
     </div>
   );
