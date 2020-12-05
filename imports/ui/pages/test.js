@@ -5,6 +5,9 @@ import { Typography, Link } from "@material-ui/core";
 
 const Test1 = lazy(() => import("/imports/ui/components/tests/test-1.js"));
 const Test2 = lazy(() => import("/imports/ui/components/tests/test-2.js"));
+const TestLayouts = lazy(() =>
+  import("/imports/ui/components/tests/test-layouts.js")
+);
 
 export default function Home() {
   return (
@@ -25,11 +28,17 @@ export default function Home() {
           Test 2
         </Link>
       </div>
+      <div>
+        <Link component={RouterLink} to="/test/layout">
+          Test Layouts
+        </Link>
+      </div>
       <div style={{ margin: "20px 0" }}>
         <Suspense fallback={<div>loading tests...</div>}>
           <Switch>
             <Route path="/test/1" component={Test1} />
             <Route path="/test/2" component={Test2} />
+            <Route path="/test/layout" component={TestLayouts} />
           </Switch>
         </Suspense>
       </div>
