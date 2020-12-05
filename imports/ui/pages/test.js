@@ -8,6 +8,7 @@ const Test2 = lazy(() => import("/imports/ui/components/tests/test-2.js"));
 const TestLayouts = lazy(() =>
   import("/imports/ui/components/tests/test-layouts.js")
 );
+const TestError = lazy(() => import("/imports/ui/components/tests/error.js"));
 
 export default function Home() {
   return (
@@ -33,12 +34,18 @@ export default function Home() {
           Test Layouts
         </Link>
       </div>
+      <div>
+        <Link component={RouterLink} to="/test/error">
+          Test error
+        </Link>
+      </div>
       <div style={{ margin: "20px 0" }}>
         <Suspense fallback={<div>loading tests...</div>}>
           <Switch>
             <Route path="/test/1" component={Test1} />
             <Route path="/test/2" component={Test2} />
             <Route path="/test/layout" component={TestLayouts} />
+            <Route path="/test/error" component={TestError} />
           </Switch>
         </Suspense>
       </div>

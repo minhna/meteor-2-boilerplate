@@ -19,8 +19,8 @@ export const LayoutProvider = (props) => {
   );
 
   useEffect(() => {
-    setLayout(search.layout);
-  }, [search.layout]);
+    setLayout(search.layout || defaultLayout || "default");
+  }, [search.layout, defaultLayout]);
 
   let TheLayout;
   switch (layout) {
