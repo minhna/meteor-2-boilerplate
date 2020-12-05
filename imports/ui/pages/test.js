@@ -3,12 +3,17 @@ import { Link as RouterLink, Switch, Route } from "react-router-dom";
 
 import { Typography, Link } from "@material-ui/core";
 
+import SecureRoute from "/imports/ui/routes/secure-route.js";
+
 const Test1 = lazy(() => import("/imports/ui/components/tests/test-1.js"));
 const Test2 = lazy(() => import("/imports/ui/components/tests/test-2.js"));
 const TestLayouts = lazy(() =>
   import("/imports/ui/components/tests/test-layouts.js")
 );
 const TestError = lazy(() => import("/imports/ui/components/tests/error.js"));
+const TestSecureRoute = lazy(() =>
+  import("/imports/ui/components/tests/test-secure-route.js")
+);
 
 export default function Home() {
   return (
@@ -39,6 +44,11 @@ export default function Home() {
           Test error
         </Link>
       </div>
+      <div>
+        <Link component={RouterLink} to="/test/secure">
+          Test secure route: please login
+        </Link>
+      </div>
       <div style={{ margin: "20px 0" }}>
         <Suspense fallback={<div>loading tests...</div>}>
           <Switch>
@@ -46,6 +56,7 @@ export default function Home() {
             <Route path="/test/2" component={Test2} />
             <Route path="/test/layout" component={TestLayouts} />
             <Route path="/test/error" component={TestError} />
+            <SecureRoute path="/test/secure" component={TestSecureRoute} />
           </Switch>
         </Suspense>
       </div>

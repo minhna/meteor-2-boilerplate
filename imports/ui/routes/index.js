@@ -8,7 +8,7 @@ const NotFoundPage = lazy(() => import("/imports/ui/pages/not-found.js"));
 export default MainRoutes = () => (
   <Suspense fallback={<div>loading...</div>}>
     <Switch>
-      <Route path="/test" component={TestPage} />
+      <Route allowed path="/test" component={TestPage} />
       <Route path="/" exact component={HomePage} />
       <Route component={NotFoundPage} />
     </Switch>
