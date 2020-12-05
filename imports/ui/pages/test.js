@@ -3,7 +3,7 @@ import { Link as RouterLink, Switch, Route } from "react-router-dom";
 
 import { Typography, Link } from "@material-ui/core";
 
-import SecureRoute from "/imports/ui/routes/secure-route.js";
+import SecureRoute from "/imports/ui/utils/secure-route.js";
 
 const Test1 = lazy(() => import("/imports/ui/components/tests/test-1.js"));
 const Test2 = lazy(() => import("/imports/ui/components/tests/test-2.js"));
