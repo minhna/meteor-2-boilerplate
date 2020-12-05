@@ -1,5 +1,7 @@
 import React, { Suspense, lazy } from "react";
-import { Link, Switch, Route } from "react-router-dom";
+import { Link as RouterLink, Switch, Route } from "react-router-dom";
+
+import { Typography, Link } from "@material-ui/core";
 
 const Test1 = lazy(() => import("/imports/ui/components/tests/test-1.js"));
 const Test2 = lazy(() => import("/imports/ui/components/tests/test-2.js"));
@@ -7,15 +9,21 @@ const Test2 = lazy(() => import("/imports/ui/components/tests/test-2.js"));
 export default function Home() {
   return (
     <div>
-      <h1>Test page</h1>
+      <Typography variant="h1">Test page</Typography>
       <div>
-        <Link to="/">Home page</Link>
+        <Link component={RouterLink} to="/">
+          Home page
+        </Link>
       </div>
       <div>
-        <Link to="/test/1">Test 1</Link>
+        <Link component={RouterLink} to="/test/1">
+          Test 1
+        </Link>
       </div>
       <div>
-        <Link to="/test/2">Test 2</Link>
+        <Link component={RouterLink} to="/test/2">
+          Test 2
+        </Link>
       </div>
       <div style={{ margin: "20px 0" }}>
         <Suspense fallback={<div>loading tests...</div>}>

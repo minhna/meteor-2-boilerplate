@@ -27,20 +27,18 @@ const StyledHeader = styled.div`
 export default function Header() {
   return (
     <StyledHeader className="header">
-      <Container>
-        <AppBar position="static">
-          <Toolbar>
-            <IconButton edge="start" color="inherit" aria-label="menu">
-              <MenuIcon />
-            </IconButton>
-            <Typography variant="h6">News</Typography>
-            <div className="right-items">
-              <Auth />
-              <ThemeSwitcher />
-            </div>
-          </Toolbar>
-        </AppBar>
-      </Container>
+      <AppBar position="static">
+        <Toolbar>
+          <IconButton edge="start" color="inherit" aria-label="menu">
+            <MenuIcon />
+          </IconButton>
+          <Typography variant="h6">News</Typography>
+          <div className="right-items">
+            <Auth />
+            <ThemeSwitcher />
+          </div>
+        </Toolbar>
+      </AppBar>
     </StyledHeader>
   );
 }
