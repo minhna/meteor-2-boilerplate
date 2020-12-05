@@ -3,9 +3,7 @@ import { BrowserRouter as Router } from 'react-router-dom'
 
 import { AccountProvider } from '/imports/ui/contexts/account-context.js'
 import { MyThemeProvider } from '/imports/ui/contexts/theme-context.js'
-
-import DefaultLayout from '/imports/ui/layouts/default.js'
-import SingleLayout from '/imports/ui/layouts/single.js'
+import { LayoutProvider } from '/imports/ui/contexts/layout-context.js'
 
 import MainRoute from './routes'
 
@@ -15,19 +13,11 @@ export const App = () => {
     <div>
       <MyThemeProvider>
         <AccountProvider>
-          {layout === 'default' ? (
-            <DefaultLayout>
+          <LayoutProvider layout={layout}>
               <Router>
                 <MainRoute />
               </Router>
-            </DefaultLayout>
-          ) : (
-            <SingleLayout>
-              <Router>
-                <MainRoute />
-              </Router>
-            </SingleLayout>
-          )}
+          </LayoutProvider>
         </AccountProvider>
       </MyThemeProvider>
     </div>
